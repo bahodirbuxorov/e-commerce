@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:untitled1/screens/category/category.dart';
 import 'package:untitled1/screens/home/home_page.dart';
+import 'package:untitled1/screens/notification/notification.dart';
 import '../screens/login/splash_screen.dart';
 import '../screens/login/sign_in_screen.dart';
 import '../screens/login/password_screen.dart';
@@ -20,6 +21,7 @@ class AppRoutes {
   static const String aboutYourself = '/about-yourself';
   static const String homePage = '/home-page';
   static const String categoriesPage = '/category';
+  static const String notificationPage = '/notification';
 
 
   static MaterialPageRoute<dynamic> _buildRoute(Widget screen) {
@@ -46,6 +48,8 @@ class AppRoutes {
         return _buildRoute(const HomePage());
       case categoriesPage:
         return _buildRoute(const CategoriesPage());
+      case notificationPage:
+        return _buildRoute(const NotificationPage());
       default:
         return _buildRoute(const Scaffold(
           body: Center(child: Text('Page not found')),

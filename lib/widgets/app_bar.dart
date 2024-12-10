@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:iconly/iconly.dart';
+
 
 PreferredSizeWidget buildAppBar(String selectedCategory, ValueChanged<String?> onChanged) {
   return PreferredSize(
@@ -9,31 +11,32 @@ PreferredSizeWidget buildAppBar(String selectedCategory, ValueChanged<String?> o
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            // Avatar
             const CircleAvatar(
               radius: 25,
               backgroundImage: AssetImage('assets/images/profile.png'),
             ),
-            // Dropdown
+
             Container(
               decoration: BoxDecoration(
                 color: const Color(0xFF322654),
                 borderRadius: BorderRadius.circular(30),
               ),
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              child: DropdownButton<String>(
-                value: selectedCategory,
-                dropdownColor: const Color(0xFF322654),
-                icon: const Icon(Icons.arrow_drop_down, color: Colors.white),
-                underline: const SizedBox(),
-                style: const TextStyle(color: Colors.white, fontSize: 16),
-                onChanged: onChanged,
-                items: ['Men', 'Women'].map((value) {
-                  return DropdownMenuItem(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
+              child: DropdownButtonHideUnderline(
+                child: DropdownButton<String>(
+                  value: selectedCategory,
+                  dropdownColor: const Color(0xFF322654),
+                  icon: const Icon(Icons.arrow_drop_down, color: Colors.white),
+                  style: const TextStyle(color: Colors.white, fontSize: 16),
+                  onChanged: onChanged,
+                  items: ['Men', 'Women'].map((value) {
+                    return DropdownMenuItem(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                  menuMaxHeight: 200,
+                ),
               ),
             ),
             Container(
@@ -43,7 +46,7 @@ PreferredSizeWidget buildAppBar(String selectedCategory, ValueChanged<String?> o
               ),
               padding: const EdgeInsets.all(10),
               child: const Icon(
-                Icons.shopping_bag_outlined,
+                IconlyBroken.bag,
                 color: Colors.white,
                 size: 24,
               ),

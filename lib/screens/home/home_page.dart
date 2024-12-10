@@ -6,6 +6,7 @@ import '../../widgets/category_item.dart';
 import '../../widgets/app_bar.dart';
 import '../../widgets/product_list.dart';
 import '../../widgets/search_bar.dart';
+import '../category/categoryDetailPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -52,7 +53,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   TextButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, AppRoutes.categoriesPage); // /category marshrutiga o'tadi
+                      Navigator.pushNamed(context, AppRoutes.categoriesPage);
                     },
                     child: const Text(
                       'See All',
@@ -63,28 +64,76 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               const SizedBox(height: 20),
-              const SingleChildScrollView(
+              SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 child: Row(
                   children: [
-                    CategoryItem(
-                        title: 'Hoodies',
-                        imagePath: 'assets/category/hoodies.png'),
-                    SizedBox(width: 10),
-                    CategoryItem(
-                        title: 'Shorts',
-                        imagePath: 'assets/category/shorts.png'),
-                    SizedBox(width: 10),
-                    CategoryItem(
-                        title: 'Shoes', imagePath: 'assets/category/shoes.png'),
-                    SizedBox(width: 10),
-                    CategoryItem(
-                        title: 'Bag', imagePath: 'assets/category/bag.png'),
-                    SizedBox(width: 10),
-                    CategoryItem(
-                        title: 'Accessories',
-                        imagePath: 'assets/category/accesories.png'),
+                CategoryItem(
+                title: 'Hoodies',
+                  imagePath: 'assets/category/hoodies.png',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                        const CategoryDetailsPage(title: 'Hoodies'),
+                      ),
+                    );
+                  },
+                ),
+                CategoryItem(
+                  title: 'Accessories',
+                  imagePath: 'assets/category/accesories.png',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                        const CategoryDetailsPage(title: 'Accessories'),
+                      ),
+                    );
+                  },
+                ),
+                CategoryItem(
+                  title: 'Shorts',
+                  imagePath: 'assets/category/shorts.png',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                        const CategoryDetailsPage(title: 'Shorts'),
+                      ),
+                    );
+                  },
+                ),
+                CategoryItem(
+                  title: 'Shoes',
+                  imagePath: 'assets/category/shoes.png',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                        const CategoryDetailsPage(title: 'Shoes'),
+                      ),
+                    );
+                  },
+                ),
+                CategoryItem(
+                  title: 'Bags',
+                  imagePath: 'assets/category/bag.png',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                        const CategoryDetailsPage(title: 'Bags'),
+                      ),
+                    );
+                  },
+                ),
                   ],
                 ),
               ),

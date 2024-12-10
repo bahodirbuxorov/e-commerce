@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconly/iconly.dart';
 
 class CustomSearchBar extends StatelessWidget {
   const CustomSearchBar({super.key});
@@ -15,7 +16,7 @@ class CustomSearchBar extends StatelessWidget {
       child: const Row(
         children: [
           Icon(
-            Icons.search,
+            IconlyBroken.search,
             color: Colors.white,
           ),
           SizedBox(width: 10),

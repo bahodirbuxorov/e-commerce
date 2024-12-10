@@ -1,7 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:iconly/iconly.dart';
 
-class Navbar extends StatelessWidget {
+class Navbar extends StatefulWidget {
   const Navbar({super.key});
+
+  @override
+  State<Navbar> createState() => _NavbarState();
+}
+
+class _NavbarState extends State<Navbar> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    // Navigate to different screens based on the selected index
+    switch (index) {
+      case 0:
+        Navigator.pushNamed(context, '/homePage');
+        break;
+      case 1:
+        Navigator.pushNamed(context, '/notification');
+        break;
+      case 2:
+        Navigator.pushNamed(context, '/orders');
+        break;
+      case 3:
+        Navigator.pushNamed(context, '/profile');
+        break;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,21 +42,23 @@ class Navbar extends StatelessWidget {
       unselectedItemColor: Colors.grey,
       showSelectedLabels: false,
       showUnselectedLabels: false,
+      currentIndex: _selectedIndex,
+      onTap: _onItemTapped,
       items: const [
         BottomNavigationBarItem(
-          icon: Icon(Icons.home_outlined),
+          icon: Icon(IconlyBroken.home),
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.notifications_none),
+          icon: Icon(IconlyBroken.notification),
           label: 'Notifications',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.receipt_long_outlined),
+          icon: Icon(IconlyBroken.paper),
           label: 'Orders',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.person_outline),
+          icon: Icon(IconlyBroken.profile),
           label: 'Profile',
         ),
       ],
