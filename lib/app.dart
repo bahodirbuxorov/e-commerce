@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
-import 'core/ navigation.dart';
+import 'core/route/rout_names.dart';
+import 'core/route/route_generator.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: "Clot",
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.splash,
-      onGenerateRoute: AppRoutes.generateRoute,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      initialRoute: RouteNames.infoPage,
+      onGenerateRoute: AppRoute(context: context).onGenerateRoute,
     );
   }
 }
+
