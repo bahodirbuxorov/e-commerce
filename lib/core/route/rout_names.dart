@@ -17,5 +17,7 @@ class RouteNames {
   static const String addCard = '/addCard';
   static const String wishlist = '/wishlist';
   static const String orders = '/orders';
+  static const String searchPage = '/searchPage';
+
   // static const String profilePage = '/profilePage';
 }

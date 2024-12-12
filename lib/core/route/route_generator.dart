@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:untitled1/core/route/rout_names.dart';
+import 'package:untitled1/features/search/serach_page.dart';
 import '../../features/auth/sign_in/reset_page.dart';
 import '../../features/auth/sign_in/send_email.dart';
 import '../../features/auth/sign_in/sign_in_email.dart';
@@ -63,6 +64,8 @@ class AppRoute {
         return MaterialPageRoute(builder: (_) => const Wishlist());
       case RouteNames.orders:
         return MaterialPageRoute(builder: (_) => const Orders());
+      case RouteNames.searchPage:
+        return MaterialPageRoute(builder: (_) => const SearchPage());
       // case RouteNames.profilePage:
       //   return MaterialPageRoute(builder: (_) => const ProfilePage());
       default:
