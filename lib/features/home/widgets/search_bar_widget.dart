@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconly/iconly.dart';
 import 'package:untitled1/core/constants/color.dart';
 
 class CustomSearchBar extends StatefulWidget {
@@ -52,7 +53,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
             fillColor: Colors.transparent,
             hintText: widget.hintText,
             hintStyle: const TextStyle(color: Colors.white54),
-            prefixIcon: const Icon(Icons.search, color: CustomColor.whiteColor),
+            prefixIcon: const Icon(IconlyBroken.search, color: CustomColor.whiteColor),
             contentPadding: const EdgeInsets.symmetric(
               vertical: 15.0,
               horizontal: 20.0,

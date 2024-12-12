@@ -147,7 +147,7 @@ class _HomePageState extends State<HomePage> {
               ),
               const SizedBox(height: 20),
               if (!isSearching) ...[
-                // Qidiruv qilinmayotganda eski UI:
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

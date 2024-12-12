@@ -63,7 +63,7 @@ class ShopCategories extends StatelessWidget {
                         arguments: "Bag");
                   }),
               CategoryButtonWidget(
-                  imgURL: "assets/category_images/bag.png",
+                  imgURL: "assets/category_images/glasses.png",
                   text: "Accessories",
                   onPressed: () {
                     Navigator.pushNamed(context, RouteNames.productsCategories,

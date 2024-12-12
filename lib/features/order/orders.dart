@@ -75,6 +75,7 @@ class _OrdersState extends State<Orders> {
         ),
         body: TabBarView(
           children: [
+            // Processing
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ListView(
@@ -93,44 +94,44 @@ class _OrdersState extends State<Orders> {
                   OrderWidget(),
                   OrderWidget(),
                   OrderWidget(),
-
-
-
                 ],
-              )
+              ),
             ),
 
-            // Second Tab: Delivered Content
+            // Shipped
+            const Center(
+              child: Text(
+                "Shipped",
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+
+            // Delivered
             const Center(
               child: Text(
                 "Delivered",
-                style: TextStyle(
-                  color: Colors.white,
-                ),
+                style: TextStyle(color: Colors.white),
               ),
             ),
 
-            // Third Tab: Returned Content
+            // Returned
             const Center(
               child: Text(
                 "Returned",
-                style: TextStyle(
-                  color: Colors.white,
-                ),
+                style: TextStyle(color: Colors.white),
               ),
             ),
 
-            // Fourth Tab: Canceled Content
+            // Canceled
             const Center(
               child: Text(
                 "Canceled",
-                style: TextStyle(
-                  color: Colors.white,
-                ),
+                style: TextStyle(color: Colors.white),
               ),
             ),
           ],
-        ),
+        )
+
       ),
     );
   }
