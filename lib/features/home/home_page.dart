@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
+import 'package:untitled1/core/constants/color.dart';
+import 'package:untitled1/core/data/products_data.dart';
+import 'package:untitled1/features/home/widgets/custom_clip_rect.dart';
 import 'package:untitled1/features/home/widgets/my_circle_avatar.dart';
-
-import '../../core/constants/color.dart';
 import '../../core/route/rout_names.dart';
 import '../search/serach_page.dart';
-import 'widgets/custom_clip_rect.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,6 +19,10 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
+    final topSelling = allProducts.where((product) => product.isTopSelling).toList();
+    final newIn = allProducts.where((product) => product.isNewIn).toList();
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: CustomColor.mainColor,
@@ -48,30 +52,20 @@ class _HomePageState extends State<HomePage> {
                 items: const [
                   DropdownMenuItem(
                     value: "Men",
-                    child: Row(
-                      children: [
-                        Text(
-                          "Men",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ],
+                    child: Text(
+                      "Men",
+                      style: TextStyle(color: Colors.white),
                     ),
                   ),
                   DropdownMenuItem(
                     value: "Women",
-                    child: Row(
-                      children: [
-                        Text(
-                          "Women",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ],
+                    child: Text(
+                      "Women",
+                      style: TextStyle(color: Colors.white),
                     ),
                   ),
                 ],
-                icon: Image.asset(
-                  "assets/icons/down_arrow.png",
-                ),
+                icon: Image.asset("assets/icons/down_arrow.png"),
               ),
             ),
           ),
@@ -91,13 +85,11 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-        //! Body
+
         body: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(
-                height: 20,
-              ),
+              const SizedBox(height: 20),
               GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -125,9 +117,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 20,
-              ),
+              const SizedBox(height: 20),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -152,18 +143,15 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 15,
-              ),
+              const SizedBox(height: 15),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     circleAvatar(
                       "assets/category_images/hoodie.png",
                       "Hoodies",
-                      () {
+                          () {
                         Navigator.pushNamed(
                             context, RouteNames.productsCategories,
                             arguments: "Hoodies");
@@ -172,7 +160,7 @@ class _HomePageState extends State<HomePage> {
                     circleAvatar(
                       "assets/category_images/shorts.png",
                       "Shorts",
-                      () {
+                          () {
                         Navigator.pushNamed(
                             context, RouteNames.productsCategories,
                             arguments: "Shorts");
@@ -181,7 +169,7 @@ class _HomePageState extends State<HomePage> {
                     circleAvatar(
                       "assets/category_images/boots.png",
                       "Shoes",
-                      () {
+                          () {
                         Navigator.pushNamed(
                             context, RouteNames.productsCategories,
                             arguments: "Shoes");
@@ -190,7 +178,7 @@ class _HomePageState extends State<HomePage> {
                     circleAvatar(
                       "assets/category_images/bag.png",
                       "Bag",
-                      () {
+                          () {
                         Navigator.pushNamed(
                             context, RouteNames.productsCategories,
                             arguments: "Bag");
@@ -199,7 +187,7 @@ class _HomePageState extends State<HomePage> {
                     circleAvatar(
                       "assets/category_images/glasses.png",
                       "Accessories",
-                      () {
+                          () {
                         Navigator.pushNamed(
                             context, RouteNames.productsCategories,
                             arguments: "Accessories");
@@ -207,10 +195,9 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
+
               ),
-              const SizedBox(
-                height: 20,
-              ),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -221,8 +208,10 @@ class _HomePageState extends State<HomePage> {
                   TextButton(
                     onPressed: () {
                       Navigator.pushNamed(
-                          context, RouteNames.productsCategories,
-                          arguments: 'Top Selling');
+                        context,
+                        RouteNames.productsCategories,
+                        arguments: 'Top Selling',
+                      );
                     },
                     child: const Text(
                       "See All",
@@ -234,44 +223,25 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 10,
-              ),
+
               SizedBox(
                 height: 350,
-                child: ListView(
+                child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  children: const [
-                    CustomClipRRect(
-                      imgURL: "assets/images/boy.png",
-                      text: "Men's Harrington Jacket",
-                      price: 1755,
-                    ),
-                    CustomClipRRect(
-                      imgURL: "assets/images/boy.png",
-                      text: "Men's Harrington Jacket",
-                      price: 1755,
-                    ),
-                    CustomClipRRect(
-                      imgURL: "assets/images/boy.png",
-                      text: "Men's Harrington Jacket",
-                      price: 1755,
-                    ),
-                  ],
+                  itemCount: topSelling.length,
+                  itemBuilder: (context, index) {
+                    return CustomClipRRect(product: topSelling[index]);
+                  },
                 ),
               ),
-              const SizedBox(
-                height: 10,
-              ),
+
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
-                    "New in",
-                    style: TextStyle(
-                        color: CustomColor.buttonColor,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
+                    "New In",
+                    style: TextStyle(color: Colors.purple, fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   TextButton(
                     onPressed: () {
@@ -291,26 +261,15 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-              const SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    CustomClipRRect(
-                      imgURL: "assets/images/boy.png",
-                      text: "Men's Harrington Jacket",
-                      price: 1755,
-                    ),
-                    CustomClipRRect(
-                      imgURL: "assets/images/boy.png",
-                      text: "Men's Harrington Jacket",
-                      price: 1755,
-                    ),
-                    CustomClipRRect(
-                      imgURL: "assets/images/boy.png",
-                      text: "Men's Harrington Jacket",
-                      price: 1755,
-                    ),
-                  ],
+              const SizedBox(height: 10),
+              SizedBox(
+                height: 350,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: newIn.length,
+                  itemBuilder: (context, index) {
+                    return CustomClipRRect(product: newIn[index]);
+                  },
                 ),
               ),
             ],

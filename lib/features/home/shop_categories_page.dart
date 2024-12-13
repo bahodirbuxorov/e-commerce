@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:untitled1/features/home/widgets/category_button_widget.dart';
 import '../../core/constants/color.dart';
@@ -62,13 +61,17 @@ class ShopCategories extends StatelessWidget {
                     Navigator.pushNamed(context, RouteNames.productsCategories,
                         arguments: "Bag");
                   }),
-              CategoryButtonWidget(
-                  imgURL: "assets/category_images/bag.png",
-                  text: "Accessories",
-                  onPressed: () {
-                    Navigator.pushNamed(context, RouteNames.productsCategories,
-                        arguments: "Accessories");
-                  }),
+        CategoryButtonWidget(
+          imgURL: "assets/category_images/glasses.png",
+          text: "Accessories",
+          onPressed: () {
+            Navigator.pushNamed(
+              context,
+              RouteNames.productsCategories,
+              arguments: "Accessories",
+            );
+          },
+        ),
             ],
           ),
         ),
