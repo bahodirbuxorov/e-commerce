@@ -16,6 +16,14 @@ The E-Commerce App is a modern shopping application built with Flutter. It provi
 
 ---
 
+## 🎨 Figma Design
+
+Explore the design and prototype for the E-Commerce App on Figma:
+[View on Figma](https://www.figma.com/design/po1OyyIfCJpg5ljzyXGwxe/Ecommerce-Mobile-App-(Community)?node-id=7-426&p=f&t=xxa2MYEqDHGe8rv7-0)
+
+---
+
+
 ## 📸 Screenshots
     
    ![Order History](https://github.com/user-attachments/assets/69330019-339b-4978-befb-e091aaf8daca)
