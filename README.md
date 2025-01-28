@@ -90,6 +90,6 @@ Contributions are welcome! Please follow these steps:
 ## 📧 Contact
 
 
-- **GitHub:** [baxa073](https://github.com/bahodirbuxorov)
+- **GitHub:** [bahodirbuxorov](https://github.com/bahodirbuxorov)
 
 ---
